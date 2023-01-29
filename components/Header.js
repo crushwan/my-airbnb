@@ -12,12 +12,14 @@ import { useState } from "react";
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
+import { useRouter } from "next/navigation";
 
-function Header() {
+function Header({ placeholder }) {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuests, setNoOfGuests] = useState(1);
+  const router = useRouter();
 
   const handleChange = (ranges) => {
     setStartDate(ranges.selection.startDate);
@@ -28,6 +30,32 @@ function Header() {
     setSearchInput("");
   };
 
+  // const search = () => {
+  //   router.push({
+  //     pathname: "/search",
+  //     query: {
+  //       location: searchInput,
+  //       startDate: startDate.toISOString(),
+  //       endDate: endDate.toISOString(),
+  //       noOfGuests,
+  //     },
+  //   });
+  // };
+
+  const search = () => {
+    const queryString = Object.entries({
+      location: searchInput,
+      startDate: startDate.toISOString(),
+      endDate: endDate.toISOString(),
+      noOfGuests,
+    })
+      .map(([key, value]) => `${key}=${value}`)
+      .join("&")
+      .replace(/#/g, "[other character]");
+    const url = `/search?${queryString}`;
+    router.push(url);
+  };
+
   const selectionRange = {
     startDate: startDate,
     endDate: endDate,
@@ -36,15 +64,23 @@ function Header() {
 
   return (
     <header className="sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-5">
-      <div className="relative flex items-center h-8 cursor-pointer my-auto">
+      <div
+        onClick={() => router.push("/")}
+        className="relative flex items-center h-8 cursor-pointer my-auto"
+      >
+        {/* <Link href="/"> */}
         <Image
           // src="https://links.papareact.com/qd3"
-          src="./airbnb.svg"
+          src="../airbnb.svg"
           fill
-          style={{ objectFit: "contain", objectPosition: "left" }}
+          style={{
+            objectFit: "contain",
+            objectPosition: "left",
+          }}
           alt=""
           sizes="auto"
         />
+        {/* </Link> */}
       </div>
 
       <div className="flex items-center md:border-2 rounded-full py-1 md:shadow-sm">
@@ -53,7 +89,9 @@ function Header() {
           onChange={(e) => setSearchInput(e.target.value)}
           className="flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600 md:placeholder-gray-600 "
           type="text"
-          placeholder={`Anywhere   |   Any week   |   Add guests`}
+          placeholder={
+            placeholder || `Anywhere   |   Any week   |   Add guests`
+          }
         />
         <MagnifyingGlassIcon
           className="hidden md:inline-flex h-8 bg-[#5f5ff5] text-white 
@@ -104,7 +142,9 @@ function Header() {
             <button onClick={resetInput} className="flex-grow text-gray-500">
               Cancel
             </button>
-            <button className="flex-grow text-[#5f5ff5]">Search</button>
+            <button onClick={search} className="flex-grow text-[#5f5ff5]">
+              Search
+            </button>
           </div>
         </div>
       )}
