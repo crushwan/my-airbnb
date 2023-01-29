@@ -3,6 +3,7 @@ import Banner from "components/Banner";
 import data from "../pyp.json";
 import MediumCard from "components/MediumCard";
 import LargeCard from "components/LargeCard";
+import Footer from "components/Footer";
 
 const fetchExploreData = async () => {
   const res = await fetch("https://www.jsonkeeper.com/b/4G1G");
@@ -65,6 +66,8 @@ async function Home() {
           buttonText={largeCard.buttonText}
         />
       </main>
+
+      <Footer />
     </>
   );
 }

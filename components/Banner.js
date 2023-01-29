@@ -11,7 +11,7 @@ function Banner() {
         alt=""
       />
       <div className="absolute top-1/2 w-full text-center">
-        <p className="text-sm sm:text-lg">Not sure wheret to go? Perfecto</p>
+        <p className="text-sm sm:text-lg">Not sure wheret to go? Perfect</p>
 
         <button
           className="text-purple-500 bg-white px-10 py-4 shadow-md rounded-full 
