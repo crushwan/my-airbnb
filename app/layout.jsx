@@ -1,6 +1,5 @@
 import Header from "components/Header";
 import "./globals.css";
-import Banner from "components/Banner";
 
 export default function RootLayout({ children }) {
   return (
@@ -8,7 +7,6 @@ export default function RootLayout({ children }) {
       <head />
       <body>
         <Header />
-        <Banner />
         {children}
       </body>
     </html>

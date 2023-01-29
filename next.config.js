@@ -4,8 +4,8 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['links.papareact.com']
-  }
-}
+    domains: ["links.papareact.com", "jsonkeeper.com"],
+  },
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
