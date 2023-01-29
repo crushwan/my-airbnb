@@ -1,6 +1,8 @@
 import SmallCard from "components/SmallCard";
 import Banner from "components/Banner";
 import data from "../pyp.json";
+import MediumCard from "components/MediumCard";
+import LargeCard from "components/LargeCard";
 
 const fetchExploreData = async () => {
   const res = await fetch("https://www.jsonkeeper.com/b/4G1G");
@@ -9,8 +11,26 @@ const fetchExploreData = async () => {
   return exploreData;
 };
 
+const fetchCardsData = async () => {
+  const res = await fetch("https://www.jsonkeeper.com/b/VHHT");
+  const cardsData = await res.json();
+  // console.log(cardsData);
+  return cardsData;
+};
+
+const fetchlargeCard = async () => {
+  const res = await fetch(
+    "https://fir-tribute-page-default-rtdb.asia-southeast1.firebasedatabase.app/large.json"
+  );
+  const largeCard = await res.json();
+  // console.log(largeCard);
+  return largeCard;
+};
+
 async function Home() {
   const exploreData = await fetchExploreData();
+  const cardsData = await fetchCardsData();
+  const largeCard = await fetchlargeCard();
 
   return (
     <>
@@ -29,7 +49,21 @@ async function Home() {
             ))}
           </div>
         </section>
-        <section></section>
+        <section>
+          <h2 className="text-4xl font-semibold py-8">Live Anywhere</h2>
+          <div className="flex space-x-3 overflow-scroll scrollbar-hide p-3 -m-3 rounded-xl">
+            {cardsData?.map(({ img, title }) => (
+              <MediumCard key={img} img={img} title={title} />
+            ))}
+          </div>
+        </section>
+
+        <LargeCard
+          img={largeCard.img}
+          title={largeCard.title}
+          description={largeCard.description}
+          buttonText={largeCard.buttonText}
+        />
       </main>
     </>
   );

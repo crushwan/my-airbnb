@@ -15,9 +15,7 @@ function Header() {
           fill
           style={{ objectFit: "contain", objectPosition: "left" }}
           alt=""
-          sizes="(max-width: 768px) 100vw,
-              (max-width: 1200px) 50vw,
-              33vw"
+          sizes="auto"
         />
       </div>
 
