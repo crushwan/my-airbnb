@@ -53,7 +53,6 @@ function Header({ placeholder }) {
       .join("&")
       .replace(/#/g, "[other character]");
     const url = `/search?${queryString}`;
-    console.log(url);
     router.push(url);
   };
 
