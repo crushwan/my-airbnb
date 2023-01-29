@@ -2,6 +2,7 @@ import SmallCard from "components/SmallCard";
 import Banner from "components/Banner";
 import MediumCard from "components/MediumCard";
 import LargeCard from "components/LargeCard";
+import Header from "components/Header";
 
 const fetchExploreData = async () => {
   const res = await fetch("https://www.jsonkeeper.com/b/4G1G");
@@ -33,6 +34,7 @@ async function Home() {
 
   return (
     <>
+      <Header />
       <Banner />
       <main className="max-w-7xl mx-auto px-8 sm:px-16">
         <section className="pt-6">
