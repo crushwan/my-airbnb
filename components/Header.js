@@ -43,7 +43,7 @@ function Header({ placeholder }) {
   // };
 
   const search = () => {
-    const queryString = Object.entries({
+    const query = Object.entries({
       location: searchInput,
       startDate: startDate.toISOString(),
       endDate: endDate.toISOString(),
@@ -52,7 +52,9 @@ function Header({ placeholder }) {
       .map(([key, value]) => `${key}=${value}`)
       .join("&")
       .replace(/#/g, "[other character]");
-    const url = `/search?${queryString}`;
+    // const url = `/search?${queryString}`;
+    const url = `/search?/${query}`;
+
     router.push(url);
   };
 
