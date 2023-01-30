@@ -52,8 +52,8 @@ function Header({ placeholder }) {
       .map(([key, value]) => `${key}=${value}`)
       .join("&")
       .replace(/#/g, "[other character]");
-    // const url = `/search?${queryString}`;
-    const url = `/search?/${query}`;
+
+    const url = `/search?${query}`;
 
     router.push(url);
   };
