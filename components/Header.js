@@ -70,9 +70,7 @@ function Header({ placeholder }) {
         onClick={() => router.push("/")}
         className="relative flex items-center h-8 cursor-pointer my-auto"
       >
-        {/* <Link href="/"> */}
         <Image
-          // src="https://links.papareact.com/qd3"
           src="../airbnb.svg"
           fill
           style={{
@@ -82,7 +80,6 @@ function Header({ placeholder }) {
           alt=""
           sizes="auto"
         />
-        {/* </Link> */}
       </div>
 
       <div className="flex items-center md:border-2 rounded-full py-1 md:shadow-sm">

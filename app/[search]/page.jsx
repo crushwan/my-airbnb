@@ -1,6 +1,5 @@
 import Header from "components/Header";
 import InfoCard from "components/InfoCard";
-// import { format } from "date-fns";
 import dayjs from "dayjs";
 
 const fetchSearchResults = async () => {
@@ -13,10 +12,9 @@ const fetchSearchResults = async () => {
 async function Search({ searchParams }) {
   const searchResults = await fetchSearchResults();
 
-  const { location, startDate, endDate, noOfGuests } = searchParams;
+  const data = searchParams;
 
-  // const formattedStartDate = format(startDate, "dd MMM");
-  // const formattedEndDate = format(endDate, "dd MMM");
+  const { location, startDate, endDate, noOfGuests } = data;
 
   const formattedStartDate = dayjs(startDate).format("DD MMM");
   const formattedEndDate = dayjs(endDate).format("DD MMM");
