@@ -3,6 +3,7 @@ import Banner from "components/Banner";
 import MediumCard from "components/MediumCard";
 import LargeCard from "components/LargeCard";
 import Header from "components/Header";
+import { largeCard } from "largeCard.json";
 
 const fetchExploreData = async () => {
   const res = await fetch("https://www.jsonkeeper.com/b/4G1G");
@@ -18,7 +19,7 @@ const fetchCardsData = async () => {
   return cardsData;
 };
 
-const fetchlargeCard = async () => {
+const fetchLargeCard = async () => {
   const res = await fetch(
     "https://fir-tribute-page-default-rtdb.asia-southeast1.firebasedatabase.app/large.json"
   );
@@ -30,7 +31,7 @@ const fetchlargeCard = async () => {
 async function Home() {
   const exploreData = await fetchExploreData();
   const cardsData = await fetchCardsData();
-  const largeCard = await fetchlargeCard();
+  const largeCard = await fetchLargeCard();
 
   return (
     <>

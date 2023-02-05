@@ -9,9 +9,10 @@ const fetchSearchResults = async () => {
   return searchResults;
 };
 
+// to make searchParams works...
 export const dynamic = "force-dynamic";
 
-async function Search({ searchParams }) {
+async function Home({ searchParams }) {
   const searchResults = await fetchSearchResults();
 
   const data = searchParams;
@@ -64,4 +65,4 @@ async function Search({ searchParams }) {
   );
 }
 
-export default Search;
+export default Home;
