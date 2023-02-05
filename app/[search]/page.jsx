@@ -12,7 +12,7 @@ const fetchSearchResults = async () => {
 // to make searchParams works...
 export const dynamic = "force-dynamic";
 
-async function Home({ searchParams }) {
+async function Search({ searchParams }) {
   const searchResults = await fetchSearchResults();
 
   const data = searchParams;
@@ -29,13 +29,15 @@ async function Home({ searchParams }) {
       <main className="flex">
         <section className="flex-grow pt-14 px-6">
           <p className="text-sm">
-            375+ Stays from {range} for {noOfGuests} number of guests
+            375+ Stays from <span className="text-[#5f5ff5]">{range}</span> for{" "}
+            <span className="text-[#5f5ff5]">{noOfGuests}</span> number of
+            guests
           </p>
           <h1 className="text-3xl font-semibold mt-2 mb-6">
-            Stays in {location}
+            Stays in <span className="text-[#5f5ff5]">{location}</span>
           </h1>
 
-          <div className="hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
+          <div className="hidden lg:inline-flex mb-5 space-x-3 text-gray-500 whitespace-nowrap">
             <p className="button">Cancellation Flexibility</p>
             <p className="button">Type of Place</p>
             <p className="button">Price</p>
@@ -65,4 +67,4 @@ async function Home({ searchParams }) {
   );
 }
 
-export default Home;
+export default Search;

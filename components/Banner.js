@@ -14,7 +14,7 @@ function Banner() {
         <p className="text-sm sm:text-lg">Not sure where to go? Perfect</p>
 
         <button
-          className="text-[#5f5ff5] bg-white px-10 py-4 shadow-md rounded-full 
+          className="text-[#5f5ff5] bg-white dark:bg-[#181818] px-10 py-4 shadow-md rounded-full 
           font-bold my-3 hover:shadow-xl active:scale-90 transition duration-150"
         >
           I{"'"}m flexible
